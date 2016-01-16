@@ -42,5 +42,16 @@ func (c *Commander) Output() string {
 }
 
 func main() {
-	fmt.Print(NewCommander().Parse("pwd").Run().Output())
+
+	m := martini.Classic()
+	m.Use(render.Renderer(render.Options{
+		Layout: "layout",
+	}))
+
+	// Homepage
+	m.Get("/", func(r render.Render) {
+		data := make(map[string]interface{})
+		data["Title"] = "Home Page"
+		r.HTML(200, "index", &data)
+	})
 }
