@@ -1,0 +1,11 @@
+# Common
+.DS_Store
+Dockerfile.tmp
+*.db*
+*.sw?
+
+# App
+*.pid
+glide.lock
+.glide
+vendor

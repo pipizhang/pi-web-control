@@ -1,0 +1,5 @@
+package: github.com/pipizhang/pi-web-control
+import:
+- package: github.com/go-martini/martini
+  version: ^1.0.0
+- package: github.com/martini-contrib/render
