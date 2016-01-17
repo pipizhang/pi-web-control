@@ -1,0 +1,52 @@
+@keyframes heartbeat
+{
+  0%
+  {
+    transform: scale( .75 );
+  }
+  20%
+  {
+    transform: scale( 1 );
+  }
+  40%
+  {
+    transform: scale( .75 );
+  }
+  60%
+  {
+    transform: scale( 1 );
+  }
+  80%
+  {
+    transform: scale( .75 );
+  }
+  100%
+  {
+    transform: scale( .75 );
+  }
+}
+
+.logo
+{
+    text-align: center
+}
+
+img.raspberry
+{
+  width: 160px;
+  /*height: 142px;*/
+  animation: heartbeat 1s infinite;
+}
+
+.app-sysinfo li {
+    color: #333;
+}
+
+.app-sysinfo span {
+    width: 100px;
+    display: inline-block;
+}
+
+pre {
+    font-size: 7pt;
+}

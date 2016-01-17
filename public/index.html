@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <meta charset="utf-8" /> <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+
+        <link rel="stylesheet" href="css/phonon.css" />
+        <link rel="stylesheet" href="css/app.css" />
+        <title>App</title>
+    </head>
+    <body>
+        <!-- Panel tags go here -->
+        <div class="side-panel side-panel-left" data-expose-aside="left" data-disable="right" data-page="home" id="side-panel-example">
+            <header class="header-bar">
+                <button class="btn pull-right icon icon-close show-for-phone-only" data-side-panel-close="true"></button>
+                <div class="pull-left">
+                    <h1 class="title">SYSTEM</h1>
+                </div>
+            </header>
+
+            <my-menu></my-menu>
+        </div>
+
+        <!-- Side Panel tags go here -->
+
+        <!-- Notification tags go here -->
+
+        <!-- Dialog tags go here -->
+
+
+        <!-- the home page is the default one. -->
+        <home data-page="true" ng-include src="'views/home.html'" ng-controller="HomeCtrl" data-ng-ready></home>
+
+        <!-- Second page. -->
+        <page data-page="true" ng-include src="'views/page.html'" ng-controller="PageCtrl"></page>
+
+        <!-- scripts -->
+        <script src="js/angular.min.js"></script>
+        <script src="js/phonon.js"></script>
+
+        <script src="js/app.js"></script>
+    </body>
+</html>

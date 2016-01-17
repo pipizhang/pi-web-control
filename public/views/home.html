@@ -1,0 +1,33 @@
+<header class="header-bar">
+    <button class="btn icon icon-menu pull-left show-for-phone-only" data-side-panel-id="side-panel-example"></button>
+    <div class="center">
+        <h1 class="title">{{pageName}}</h1>
+    </div>
+    <button class="btn pull-right icon icon-settings" data-popover-id="my-popover"></button>
+</header>
+
+<div class="content">
+
+    <div class="popover" id="my-popover">
+        <ul class="list">
+            <li class="divider">QUIT</li>
+            <li><a class="padded-list" ng-click="reboot()">Reboot</a></li>
+            <li><a class="padded-list" ng-click="shutdown()">Shutdown</a></li>
+        </ul>
+    </div>
+
+    <!--<div class="logo"><img class="raspberry" src="https://www.raspberrypi.org/wp-content/uploads/2011/10/Raspi-PGB001.png"></div>-->
+
+    <!--<div class="padded-full">-->
+        <!--<h3>Hostname</h3>-->
+    <!--</div>-->
+    <ul class="list app-sysinfo">
+        <li class="divider"><span>Hostname</span> {{info.hostname}}</li>
+        <li class="padded-list"><span>IP Address</span> {{info.ip}}</li>
+        <li class="padded-list"><span>System</span> {{info.os}}</li>
+        <li class="padded-list"><span>CPU Number</span> {{info.cpus}}</li>
+        <li class="padded-list"><span>Disk Space</span> {{info.storage.all}}</li>
+    </ul>
+
+
+</div>
