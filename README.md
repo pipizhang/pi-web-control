@@ -1,7 +1,7 @@
 # pi-web-control
 A simple web control panel for Raspberry Pi
 
-![screenshot](https://github.com/pipizhang/pi-web-control/blob/master/screenshots/01.png)
+![screenshot](https://github.com/pipizhang/pi-web-control/blob/master/screenshots/animation.gif)
 
 #### Features
 - system details, like cpu, disk and memory usage etc.
