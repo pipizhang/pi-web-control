@@ -64,6 +64,7 @@ type SystemInfo struct {
 	OS       string  `json:"os"`
 	CPUs     int     `json:"cpus"`
 	Storage  Storage `json:"storage"`
+	Uptime   string  `json:"uptime"`
 }
 
 func (s *SystemInfo) init() {
@@ -72,6 +73,7 @@ func (s *SystemInfo) init() {
 	s.OS = s.getOS()
 	s.CPUs = s.getCPUs()
 	s.Storage = s.getStorage("/")
+	s.Uptime = s.getUptime()
 }
 
 func (s *SystemInfo) getHostname() string {
@@ -85,6 +87,10 @@ func (s *SystemInfo) getOS() string {
 
 func (s *SystemInfo) getCPUs() int {
 	return runtime.NumCPU()
+}
+
+func (s *SystemInfo) getUptime() string {
+	return NewCommander().Parse("uptime -p").Run().Output()
 }
 
 func (s *SystemInfo) getLocalIP() string {
@@ -141,6 +147,7 @@ func main() {
 
 	m.Get("/api/system", func(r render.Render) {
 		si.Storage = si.getStorage("/")
+		si.Uptime = si.getUptime()
 		r.JSON(200, si)
 	})
 
