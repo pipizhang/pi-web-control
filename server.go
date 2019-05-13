@@ -2,14 +2,16 @@ package main
 
 import (
 	"fmt"
-	"github.com/go-martini/martini"
-	"github.com/martini-contrib/render"
 	"net"
 	"os"
 	"os/exec"
+	"regexp"
 	"runtime"
 	"strings"
 	"syscall"
+
+	"github.com/go-martini/martini"
+	"github.com/martini-contrib/render"
 )
 
 type Commander struct {
@@ -90,7 +92,13 @@ func (s *SystemInfo) getCPUs() int {
 }
 
 func (s *SystemInfo) getUptime() string {
-	return NewCommander().Parse("uptime -p").Run().Output()
+	tmp := NewCommander().Parse("uptime").Run().Output()
+	re := regexp.MustCompile(`(.+),\s+load average:`)
+	match := re.FindStringSubmatch(tmp)
+	if match == nil {
+		return ""
+	}
+	return match[1]
 }
 
 func (s *SystemInfo) getLocalIP() string {
